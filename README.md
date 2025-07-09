@@ -22,26 +22,27 @@ import agify
 let client = newAgifyClient("OPTIONAL_API_KEY")
 ```
 
-### Get age for a single name
+### Predict the age of a single name
 
 ```nim
-let ageResult = getAge("Nemuel")
+let ageResult = predictAge("Nemuel")
 if isOk(ageResult):
   echo ageResult.value.age
 else: echo ageResult.error
 ```
 
-### Get ages for multiple names
+### Predict the ages of multiple names
 
 ```nim
-let agesResult = getAges(@["Nemuel", "Kira"])
+let agesResult = predictAges(@["Nemuel", "Kira"])
 if isOk(agesResult):
   for result in agesResult.value:
     echo result.age
 else: echo agesResult.error
 ```
 
-> Both the `getAge` and `getAges` methods have an optional second parameter (a country ID)
+> Both the `predictAge` and `predictAges` methods have an optional second parameter (a 2-letter country
+> ID e.g. `KE`)
 
 ## Contributing
 

@@ -42,11 +42,11 @@ proc newAgifyClient*(apiKey = ""): AgifyClient =
   result.client = newHttpClient()
   result.client.headers = newHttpHeaders({"User-Agent": "agify/0.1.0 (Nim)"})
 
-proc getAge*(self: AgifyClient, name: string, countryId = ""): Result[Age, string] =
-  ## get the predicted age for a single name
+proc predictAge*(self: AgifyClient, name: string, countryId = ""): Result[Age, string] =
+  ## predict the age of a single name
   ##
   ## params:
-  ##  `name`: name whose age is to be determined
+  ##  `name`: name whose age is to be predicted
   ##  `countryId`: optional country filter to apply
   ##
   ## returns:
@@ -59,11 +59,11 @@ proc getAge*(self: AgifyClient, name: string, countryId = ""): Result[Age, strin
 
   return makeRequest[Age](self, url)
 
-proc getAges*(self: AgifyClient, names: seq[string], countryId = ""): Result[seq[Age], string] =
-  ## get the predicted age for a list of names
+proc predictAges*(self: AgifyClient, names: seq[string], countryId = ""): Result[seq[Age], string] =
+  ## predict the ages of a list of names
   ##
   ## params:
-  ##  `names`: array of names whose ages are to be determined
+  ##  `names`: list of names whose ages are to be predicted
   ##  `countryId`: optional country filter to apply
   ##
   ## returns:
