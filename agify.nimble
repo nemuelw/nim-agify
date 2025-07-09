@@ -11,4 +11,4 @@ srcDir        = "src"
 
 requires "nim >= 1.6"
 requires "jsony"
-requires "requests"
+requires "results"
